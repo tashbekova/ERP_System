@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EstelaVidaShop.Models.Payroll>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Выдача зарплаты</h2>
+
+<p>
+    @Html.ActionLink("Создать новый", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Сотрудник")
+        </th>
+        <th>
+            @Html.DisplayName("Месяц")
+        </th>
+        <th>
+            @Html.DisplayName("Год")
+        </th>
+        <th>
+            @Html.DisplayName("Оклад")
+        </th>
+        <th>
+            @Html.DisplayName("Премия")
+        </th>
+        <th>
+            @Html.DisplayName("Общая сумма")
+        </th>
+
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Worker1.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Month1.Month1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Premium)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+
+
+
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("просмотреть", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

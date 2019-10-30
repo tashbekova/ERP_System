@@ -1,0 +1,60 @@
+﻿@model EstelaVidaShop.Models.Vyplata_kredita
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vyplata_kredita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kredit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kredit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Procent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Penya)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Penya)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

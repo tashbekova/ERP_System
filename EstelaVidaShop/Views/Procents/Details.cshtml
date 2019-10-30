@@ -1,0 +1,34 @@
+﻿@model EstelaVidaShop.Models.Procent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Procent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proc_na_salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proc_na_salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proc_na_cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proc_na_cost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
