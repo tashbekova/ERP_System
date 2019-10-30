@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EstelaVidaShop.Models.Sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Продажа</h2>
+
+<p>
+    @Html.ActionLink("Создать новый", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayName("Название продукта")
+        </th>
+        <th>
+            @Html.DisplayName("Количество")
+        </th>
+        <th>
+            @Html.DisplayName("Сумма")
+        </th>
+        <th>
+            @Html.DisplayName("Дата")
+        </th>
+        
+        <th>
+            @Html.DisplayName("Сотрудник")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product1.Name)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Worker1.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Просмотреть", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

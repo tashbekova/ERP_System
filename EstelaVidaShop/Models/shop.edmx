@@ -1,0 +1,1367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище shopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Budjet">
+          <Key>
+            <PropertyRef Name="Budjet" />
+          </Key>
+          <Property Name="Budjet" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Composition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="int" />
+          <Property Name="Material" Type="int" />
+          <Property Name="Count" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Unit" Type="int" />
+          <Property Name="Count" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Cost" Type="decimal" Precision="37" Scale="19" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Month">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" Nullable="false" />
+          <Property Name="Month" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Worker" Type="int" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Premium" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Month" Type="tinyint" />
+          <Property Name="Year" Type="int" />
+        </EntityType>
+        <EntityType Name="Poluchenie_kredita">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bank" Type="varchar" MaxLength="50" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Procent" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Penya" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Let" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Ostatok" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Procent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proc_na_salary" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Proc_na_cost" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Unit" Type="int" />
+          <Property Name="Count" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Sum" Type="real" Nullable="false" />
+          <Property Name="Cost" Type="float" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Production">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="int" />
+          <Property Name="Count" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Worker" Type="int" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Material" Type="int" />
+          <Property Name="Count" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Worker" Type="int" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="int" />
+          <Property Name="Count" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Worker" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vyplata_kredita">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kredit" Type="int" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Procent" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Penya" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Ostatok" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Sum_all" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="Position" Type="int" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Composition_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="Material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Composition_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payroll_Month">
+          <End Role="Month" Type="Self.Month" Multiplicity="0..1" />
+          <End Role="Payroll" Type="Self.Payroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Month">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payroll">
+              <PropertyRef Name="Month" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payroll_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Payroll" Type="Self.Payroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payroll">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_unit">
+          <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Production_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Production" Type="Self.Production" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Production">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Production_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Production" Type="Self.Production" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Production">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vyplata_kredita_Poluchenie_kredita">
+          <End Role="Poluchenie_kredita" Type="Self.Poluchenie_kredita" Multiplicity="0..1" />
+          <End Role="Vyplata_kredita" Type="Self.Vyplata_kredita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poluchenie_kredita">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vyplata_kredita">
+              <PropertyRef Name="Kredit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="buyMaterial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="material" Type="int" Mode="In" />
+          <Parameter Name="count" Type="decimal" Mode="In" />
+          <Parameter Name="worker" Type="int" Mode="In" />
+          <Parameter Name="sum" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="check_budget" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sumValue" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="check_payroll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="total" Type="decimal" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Count_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kol" Type="decimal" Mode="In" />
+          <Parameter Name="product" Type="int" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="insert_into_payroll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empID" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Kredit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdK" Type="int" Mode="In" />
+          <Parameter Name="sum" Type="decimal" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="Kredit_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_VK_I" Type="int" Mode="In" />
+          <Parameter Name="id_kredita_I" Type="int" Mode="In" />
+          <Parameter Name="data_VK_I" Type="date" Mode="In" />
+        </Function>
+        <Function Name="Money" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sum" Type="decimal" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Production_count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="kol" Type="decimal" Mode="In" />
+          <Parameter Name="product" Type="int" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ProductionProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="product" Type="int" Mode="In" />
+          <Parameter Name="count" Type="decimal" Mode="In" />
+          <Parameter Name="worker" Type="int" Mode="In" />
+        </Function>
+        <Function Name="saleProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="product" Type="int" Mode="In" />
+          <Parameter Name="count" Type="decimal" Mode="In" />
+          <Parameter Name="worker" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sostav" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="product_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InfoProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prod" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Worker_info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="worker" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="XP_payroll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="worker" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="salary" Type="decimal" Mode="In" />
+          <Parameter Name="premiya" Type="decimal" Mode="In" />
+          <Parameter Name="total" Type="decimal" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище shopModelContainer">
+          <EntitySet Name="Budjet" EntityType="Self.Budjet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Composition" EntityType="Self.Composition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Month" EntityType="Self.Month" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poluchenie_kredita" EntityType="Self.Poluchenie_kredita" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Procent" EntityType="Self.Procent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Production" EntityType="Self.Production" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="unit" EntityType="Self.unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vyplata_kredita" EntityType="Self.Vyplata_kredita" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Composition_Material" Association="Self.FK_Composition_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Composition_Product" Association="Self.FK_Composition_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_unit" Association="Self.FK_Material_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payroll_Month" Association="Self.FK_Payroll_Month">
+            <End Role="Month" EntitySet="Month" />
+            <End Role="Payroll" EntitySet="Payroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payroll_Worker" Association="Self.FK_Payroll_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Payroll" EntitySet="Payroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_unit" Association="Self.FK_Product_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Production_Product" Association="Self.FK_Production_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Production" EntitySet="Production" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Production_Worker" Association="Self.FK_Production_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Production" EntitySet="Production" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Material" Association="Self.FK_Purchase_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Worker" Association="Self.FK_Purchase_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Product" Association="Self.FK_Sale_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Worker" Association="Self.FK_Sale_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vyplata_kredita_Poluchenie_kredita" Association="Self.FK_Vyplata_kredita_Poluchenie_kredita">
+            <End Role="Poluchenie_kredita" EntitySet="Poluchenie_kredita" />
+            <End Role="Vyplata_kredita" EntitySet="Vyplata_kredita" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Position" Association="Self.FK_Worker_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Composition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="Int32" />
+          <Property Name="Material" Type="Int32" />
+          <Property Name="Count" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Material1" Relationship="Self.FK_Composition_Material" FromRole="Composition" ToRole="Material" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Composition_Product" FromRole="Composition" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="Int32" />
+          <Property Name="Count" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Cost" Type="Decimal" Precision="37" Scale="19" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Composition" Relationship="Self.FK_Composition_Material" FromRole="Material" ToRole="Composition" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK_Purchase_Material" FromRole="Material" ToRole="Purchase" />
+          <NavigationProperty Name="unit1" Relationship="shopModel.FK_Material_unit" FromRole="Material" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="Month">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" />
+          <Property Name="Month1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Payroll" Relationship="Self.FK_Payroll_Month" FromRole="Month" ToRole="Payroll" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Worker" Type="Int32" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Premium" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Month" Type="Byte" />
+          <Property Name="Year" Type="Int32" />
+          <NavigationProperty Name="Month1" Relationship="Self.FK_Payroll_Month" FromRole="Payroll" ToRole="Month" />
+          <NavigationProperty Name="Worker1" Relationship="shopModel.FK_Payroll_Worker" FromRole="Payroll" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Poluchenie_kredita">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Procent" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Penya" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Let" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Ostatok" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Vyplata_kredita" Relationship="shopModel.FK_Vyplata_kredita_Poluchenie_kredita" FromRole="Poluchenie_kredita" ToRole="Vyplata_kredita" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Position" FromRole="Position" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Procent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proc_na_salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Proc_na_cost" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Unit" Type="Int32" />
+          <Property Name="Count" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Sum" Type="Single" Nullable="false" />
+          <Property Name="Cost" Type="Double" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Composition" Relationship="Self.FK_Composition_Product" FromRole="Product" ToRole="Composition" />
+          <NavigationProperty Name="Production" Relationship="Self.FK_Production_Product" FromRole="Product" ToRole="Production" />
+          <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_Product" FromRole="Product" ToRole="Sale" />
+          <NavigationProperty Name="unit1" Relationship="shopModel.FK_Product_unit" FromRole="Product" ToRole="unit" />
+        </EntityType>
+        <EntityType Name="Production">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="Int32" />
+          <Property Name="Count" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Worker" Type="Int32" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Production_Product" FromRole="Production" ToRole="Product" />
+          <NavigationProperty Name="Worker1" Relationship="Self.FK_Production_Worker" FromRole="Production" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Material" Type="Int32" />
+          <Property Name="Count" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Worker" Type="Int32" />
+          <NavigationProperty Name="Material1" Relationship="Self.FK_Purchase_Material" FromRole="Purchase" ToRole="Material" />
+          <NavigationProperty Name="Worker1" Relationship="Self.FK_Purchase_Worker" FromRole="Purchase" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="Int32" />
+          <Property Name="Count" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Worker" Type="Int32" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Sale_Product" FromRole="Sale" ToRole="Product" />
+          <NavigationProperty Name="Worker1" Relationship="Self.FK_Sale_Worker" FromRole="Sale" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Material" Relationship="shopModel.FK_Material_unit" FromRole="unit" ToRole="Material" />
+          <NavigationProperty Name="Product" Relationship="shopModel.FK_Product_unit" FromRole="unit" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Vyplata_kredita">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kredit" Type="Int32" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Procent" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Penya" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Ostatok" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Sum_all" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Poluchenie_kredita" Relationship="shopModel.FK_Vyplata_kredita_Poluchenie_kredita" FromRole="Vyplata_kredita" ToRole="Poluchenie_kredita" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Position1" Relationship="Self.FK_Worker_Position" FromRole="Worker" ToRole="Position" />
+          <NavigationProperty Name="Production" Relationship="Self.FK_Production_Worker" FromRole="Worker" ToRole="Production" />
+          <NavigationProperty Name="Purchase" Relationship="Self.FK_Purchase_Worker" FromRole="Worker" ToRole="Purchase" />
+          <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_Worker" FromRole="Worker" ToRole="Sale" />
+          <NavigationProperty Name="Payroll" Relationship="shopModel.FK_Payroll_Worker" FromRole="Worker" ToRole="Payroll" />
+        </EntityType>
+        <Association Name="FK_Composition_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="Material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Composition_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Composition" Type="Self.Composition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Composition">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Material">
+          <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payroll_Month">
+          <End Role="Month" Type="Self.Month" Multiplicity="0..1" />
+          <End Role="Payroll" Type="Self.Payroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Month">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payroll">
+              <PropertyRef Name="Month" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Production_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Production" Type="Self.Production" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Production">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Production_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Production" Type="Self.Production" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Production">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="shopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Composition" EntityType="Self.Composition" />
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="Month" EntityType="Self.Month" />
+          <EntitySet Name="Payroll" EntityType="Self.Payroll" />
+          <EntitySet Name="Poluchenie_kredita" EntityType="Self.Poluchenie_kredita" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="Procent" EntityType="Self.Procent" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Production" EntityType="Self.Production" />
+          <EntitySet Name="Purchase" EntityType="Self.Purchase" />
+          <EntitySet Name="Sale" EntityType="Self.Sale" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="unit" EntityType="Self.unit" />
+          <EntitySet Name="Vyplata_kredita" EntityType="Self.Vyplata_kredita" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" />
+          <AssociationSet Name="FK_Composition_Material" Association="Self.FK_Composition_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Composition_Product" Association="Self.FK_Composition_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Composition" EntitySet="Composition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Material" Association="Self.FK_Purchase_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payroll_Month" Association="Self.FK_Payroll_Month">
+            <End Role="Month" EntitySet="Month" />
+            <End Role="Payroll" EntitySet="Payroll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_Position" Association="Self.FK_Worker_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Production_Product" Association="Self.FK_Production_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Production" EntitySet="Production" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Product" Association="Self.FK_Sale_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Production_Worker" Association="Self.FK_Production_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Production" EntitySet="Production" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_Worker" Association="Self.FK_Purchase_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Purchase" EntitySet="Purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Worker" Association="Self.FK_Sale_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <FunctionImport Name="buyMaterial">
+            <Parameter Name="material" Mode="In" Type="Int32" />
+            <Parameter Name="count" Mode="In" Type="Decimal" />
+            <Parameter Name="worker" Mode="In" Type="Int32" />
+            <Parameter Name="sum" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="check_payroll">
+            <Parameter Name="total" Mode="In" Type="Decimal" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Count_Product">
+            <Parameter Name="kol" Mode="In" Type="Decimal" />
+            <Parameter Name="product" Mode="In" Type="Int32" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCount" ReturnType="Collection(Decimal)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Kredit">
+            <Parameter Name="IdK" Mode="In" Type="Int32" />
+            <Parameter Name="sum" Mode="In" Type="Decimal" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Kredit_info">
+            <Parameter Name="id_VK_I" Mode="In" Type="Int32" />
+            <Parameter Name="id_kredita_I" Mode="In" Type="Int32" />
+            <Parameter Name="data_VK_I" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Money">
+            <Parameter Name="sum" Mode="In" Type="Decimal" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Production_count">
+            <Parameter Name="kol" Mode="In" Type="Decimal" />
+            <Parameter Name="product" Mode="In" Type="Int32" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductionProduct">
+            <Parameter Name="product" Mode="In" Type="Int32" />
+            <Parameter Name="count" Mode="In" Type="Decimal" />
+            <Parameter Name="worker" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="saleProduct">
+            <Parameter Name="product" Mode="In" Type="Int32" />
+            <Parameter Name="count" Mode="In" Type="Decimal" />
+            <Parameter Name="worker" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sostav" ReturnType="Collection(shopModel.Sostav_Result)">
+          <Parameter Name="product_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(shopModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(shopModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InfoProduct" ReturnType="Collection(shopModel.SP_InfoProduct_Result)">
+          <Parameter Name="prod" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="Worker_info" ReturnType="Collection(shopModel.Worker_info_Result)">
+            <Parameter Name="worker" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="XP_payroll">
+            <Parameter Name="worker" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="salary" Mode="In" Type="Decimal" />
+            <Parameter Name="premiya" Mode="In" Type="Decimal" />
+            <Parameter Name="total" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <AssociationSet Name="FK_Material_unit" Association="shopModel.FK_Material_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_unit" Association="shopModel.FK_Product_unit">
+            <End Role="unit" EntitySet="unit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payroll_Worker" Association="shopModel.FK_Payroll_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Payroll" EntitySet="Payroll" />
+          </AssociationSet>
+          <EntitySet Name="Budjet" EntityType="shopModel.Budjet" />
+          <FunctionImport Name="check_budget">
+          <Parameter Name="sumValue" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="insert_into_payroll">
+            <Parameter Name="empID" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_Vyplata_kredita_Poluchenie_kredita" Association="shopModel.FK_Vyplata_kredita_Poluchenie_kredita">
+            <End Role="Poluchenie_kredita" EntitySet="Poluchenie_kredita" />
+            <End Role="Vyplata_kredita" EntitySet="Vyplata_kredita" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="Sostav_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Count" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_InfoProduct_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Продукт_кол" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Single" Name="Прод_сумма" Nullable="true" />
+          <Property Type="Decimal" Name="Budjet" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="ID_сырье" Nullable="true" />
+          <Property Type="String" Name="Назв_сырья" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Сырье_сумма" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Сырье_кол" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="КолСырьяНапродукт" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="Worker_info_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ФИО" Nullable="true" />
+          <Property Type="Decimal" Name="Оклад" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Премия" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Итог" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Продажа" Nullable="true" />
+          <Property Type="Int32" Name="Производство" Nullable="true" />
+          <Property Type="Int32" Name="Закупка" Nullable="true" />
+          <Property Type="Int32" Name="Общая" Nullable="true" />
+          <Property Type="Decimal" Name="Процент" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <Association Name="FK_Material_unit">
+          <End Type="shopModel.unit" Role="unit" Multiplicity="0..1" />
+          <End Type="shopModel.Material" Role="Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_unit">
+          <End Type="shopModel.unit" Role="unit" Multiplicity="0..1" />
+          <End Type="shopModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Unit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payroll_Worker">
+          <End Type="shopModel.Worker" Role="Worker" Multiplicity="0..1" />
+          <End Type="shopModel.Payroll" Role="Payroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payroll">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Budjet">
+          <Key>
+            <PropertyRef Name="Budjet1" />
+          </Key>
+          <Property Name="Budjet1" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK_Vyplata_kredita_Poluchenie_kredita">
+          <End Type="shopModel.Poluchenie_kredita" Role="Poluchenie_kredita" Multiplicity="0..1" />
+          <End Type="shopModel.Vyplata_kredita" Role="Vyplata_kredita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poluchenie_kredita">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vyplata_kredita">
+              <PropertyRef Name="Kredit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище shopModelContainer" CdmEntityContainer="shopEntities">
+          <EntitySetMapping Name="Composition">
+            <EntityTypeMapping TypeName="shopModel.Composition">
+              <MappingFragment StoreEntitySet="Composition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="shopModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Month">
+            <EntityTypeMapping TypeName="shopModel.Month">
+              <MappingFragment StoreEntitySet="Month">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Month1" ColumnName="Month" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payroll">
+            <EntityTypeMapping TypeName="shopModel.Payroll">
+              <MappingFragment StoreEntitySet="Payroll">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Premium" ColumnName="Premium" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poluchenie_kredita">
+            <EntityTypeMapping TypeName="shopModel.Poluchenie_kredita">
+              <MappingFragment StoreEntitySet="Poluchenie_kredita">
+                <ScalarProperty Name="Ostatok" ColumnName="Ostatok" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Procent" ColumnName="Procent" />
+                <ScalarProperty Name="Penya" ColumnName="Penya" />
+                <ScalarProperty Name="Let" ColumnName="Let" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="shopModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Procent">
+            <EntityTypeMapping TypeName="shopModel.Procent">
+              <MappingFragment StoreEntitySet="Procent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Proc_na_salary" ColumnName="Proc_na_salary" />
+                <ScalarProperty Name="Proc_na_cost" ColumnName="Proc_na_cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="shopModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Production">
+            <EntityTypeMapping TypeName="shopModel.Production">
+              <MappingFragment StoreEntitySet="Production">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchase">
+            <EntityTypeMapping TypeName="shopModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchase">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale">
+            <EntityTypeMapping TypeName="shopModel.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="shopModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unit">
+            <EntityTypeMapping TypeName="shopModel.unit">
+              <MappingFragment StoreEntitySet="unit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vyplata_kredita">
+            <EntityTypeMapping TypeName="shopModel.Vyplata_kredita">
+              <MappingFragment StoreEntitySet="Vyplata_kredita">
+                <ScalarProperty Name="Sum_all" ColumnName="Sum_all" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kredit" ColumnName="Kredit" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Procent" ColumnName="Procent" />
+                <ScalarProperty Name="Penya" ColumnName="Penya" />
+                <ScalarProperty Name="Ostatok" ColumnName="Ostatok" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="shopModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="buyMaterial" FunctionName="Хранилище shopModel.buyMaterial" />
+          <FunctionImportMapping FunctionImportName="check_payroll" FunctionName="Хранилище shopModel.check_payroll" />
+          <FunctionImportMapping FunctionImportName="Count_Product" FunctionName="Хранилище shopModel.Count_Product" />
+          <FunctionImportMapping FunctionImportName="GetCount" FunctionName="Хранилище shopModel.GetCount" />
+          <FunctionImportMapping FunctionImportName="Kredit" FunctionName="Хранилище shopModel.Kredit" />
+          <FunctionImportMapping FunctionImportName="Kredit_info" FunctionName="Хранилище shopModel.Kredit_info" />
+          <FunctionImportMapping FunctionImportName="Money" FunctionName="Хранилище shopModel.Money" />
+          <FunctionImportMapping FunctionImportName="Production_count" FunctionName="Хранилище shopModel.Production_count" />
+          <FunctionImportMapping FunctionImportName="ProductionProduct" FunctionName="Хранилище shopModel.ProductionProduct" />
+          <FunctionImportMapping FunctionImportName="saleProduct" FunctionName="Хранилище shopModel.saleProduct" />
+          <FunctionImportMapping FunctionImportName="Sostav" FunctionName="Хранилище shopModel.Sostav">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shopModel.Sostav_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище shopModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище shopModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище shopModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище shopModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shopModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище shopModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shopModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_InfoProduct" FunctionName="Хранилище shopModel.SP_InfoProduct">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shopModel.SP_InfoProduct_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Продукт_кол" ColumnName="Продукт_кол" />
+                <ScalarProperty Name="Прод_сумма" ColumnName="Прод_сумма" />
+                <ScalarProperty Name="Budjet" ColumnName="Budjet" />
+                <ScalarProperty Name="ID_сырье" ColumnName="ID_сырье" />
+                <ScalarProperty Name="Назв_сырья" ColumnName="Назв_сырья" />
+                <ScalarProperty Name="Сырье_сумма" ColumnName="Сырье_сумма" />
+                <ScalarProperty Name="Сырье_кол" ColumnName="Сырье_кол" />
+                <ScalarProperty Name="КолСырьяНапродукт" ColumnName="КолСырьяНапродукт" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище shopModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище shopModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="Worker_info" FunctionName="Хранилище shopModel.Worker_info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="shopModel.Worker_info_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ФИО" ColumnName="ФИО" />
+                <ScalarProperty Name="Оклад" ColumnName="Оклад" />
+                <ScalarProperty Name="Премия" ColumnName="Премия" />
+                <ScalarProperty Name="Итог" ColumnName="Итог" />
+                <ScalarProperty Name="Продажа" ColumnName="Продажа" />
+                <ScalarProperty Name="Производство" ColumnName="Производство" />
+                <ScalarProperty Name="Закупка" ColumnName="Закупка" />
+                <ScalarProperty Name="Общая" ColumnName="Общая" />
+                <ScalarProperty Name="Процент" ColumnName="Процент" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="XP_payroll" FunctionName="Хранилище shopModel.XP_payroll" />
+          <EntitySetMapping Name="Budjet">
+            <EntityTypeMapping TypeName="shopModel.Budjet">
+              <MappingFragment StoreEntitySet="Budjet">
+                <ScalarProperty Name="Budjet1" ColumnName="Budjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="check_budget" FunctionName="Хранилище shopModel.check_budget" />
+          <FunctionImportMapping FunctionImportName="insert_into_payroll" FunctionName="Хранилище shopModel.insert_into_payroll" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

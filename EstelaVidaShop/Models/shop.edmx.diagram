@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="848222d0280d4fb086095ef9e732624b" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="shopModel.Composition" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Material" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Month" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Payroll" Width="1.5" PointX="10" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Poluchenie_kredita" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Position" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Procent" Width="1.5" PointX="10.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Product" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Production" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Purchase" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Sale" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.unit" Width="1.5" PointX="10.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Vyplata_kredita" Width="1.5" PointX="12.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="shopModel.Worker" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="shopModel.FK_Composition_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Composition_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Purchase_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Payroll_Month" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Worker_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Production_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Sale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Production_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Purchase_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Sale_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="shopModel.FK_Material_unit" />
+        <AssociationConnector Association="shopModel.FK_Product_unit" />
+        <AssociationConnector Association="shopModel.FK_Payroll_Worker" />
+        <EntityTypeShape EntityType="shopModel.Budjet" Width="1.5" PointX="0.75" PointY="12.75" />
+        <AssociationConnector Association="shopModel.FK_Vyplata_kredita_Poluchenie_kredita" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

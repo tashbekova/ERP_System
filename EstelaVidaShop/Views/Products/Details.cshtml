@@ -1,0 +1,58 @@
+﻿@model EstelaVidaShop.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Просмотреть</h2>
+
+<div>
+    <h4>Продукты</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Количество")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Сумма")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Себестоимость")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Единица измерения")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unit1.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

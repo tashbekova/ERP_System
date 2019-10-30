@@ -1,0 +1,42 @@
+﻿@model EstelaVidaShop.Models.Composition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Просмотреть</h2>
+
+<div>
+    <h4>Ингредиенты</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Количество")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Название сырья")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Material1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Название продукта")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product1.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

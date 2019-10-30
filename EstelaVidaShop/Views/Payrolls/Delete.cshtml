@@ -1,0 +1,73 @@
+﻿@model EstelaVidaShop.Models.Payroll
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удалить</h2>
+
+<h3>Вы уверены что хотите удалить?</h3>
+<div>
+    <h4>Выдача зарплаты</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Сотруник")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Worker1.Name)
+        </dd>
+        <dt>
+            @Html.DisplayName("Месяц")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Month1.Month1)
+        </dd>
+        <dt>
+            @Html.DisplayName("Год")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt>
+            @Html.DisplayName("Оклад")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Премия")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Premium)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Общая сумма")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+
+
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

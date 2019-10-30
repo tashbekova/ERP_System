@@ -1,0 +1,70 @@
+﻿@model IEnumerable<EstelaVidaShop.Models.Poluchenie_kredita>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Procent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Penya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Let)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ostatok)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Procent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Penya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Let)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Ostatok)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
