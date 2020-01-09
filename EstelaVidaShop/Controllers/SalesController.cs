@@ -65,9 +65,7 @@ namespace EstelaVidaShop.Controllers
                 Session["error"] = err;
                 return RedirectToAction("Create");
             }
-           /* ViewBag.Product = new SelectList(db.Product, "ID", "Name", sale.Product);
-            ViewBag.Worker = new SelectList(db.Worker, "ID", "Name", sale.Worker);
-            return View(sale);*/
+         
         }
 
         // GET: Sales/Edit/5
